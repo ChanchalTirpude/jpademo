@@ -1,0 +1,34 @@
+package io.pragra.learning.jpademo.domain;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.Date;
+@Entity
+@Table(name = "TABLE_AUTHORS")
+@Data
+@NoArgsConstructor
+@ToString
+public class Author {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private long id;
+    @Column(nullable = false)
+    private String name;
+    private String company;
+    private String instituition;
+    private Date createDate;
+    private Date updateDate;
+    private StatusEnum status;
+
+    public Author(String name, String company, String instituition, Date createDate, Date updateDate, StatusEnum status) {
+        this.name = name;
+        this.company = company;
+        this.instituition = instituition;
+        this.createDate = createDate;
+        this.updateDate = updateDate;
+        this.status = status;
+    }
+}
